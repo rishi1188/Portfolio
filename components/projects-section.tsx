@@ -29,6 +29,14 @@ const projects = [
     github: "https://github.com/rishi1188/jan-saathi",
     demo: "https://example.com",
   },
+  {
+    title: "AssetFlow",
+    description:
+      "A full-stack enterprise asset and resource management system built for a hackathon, covering the complete lifecycle — asset registration, allocation & transfer workflows, resource booking with conflict detection, maintenance management, audit cycles, and analytics/reporting — with server-side role-based permissions for Admin, Asset Manager, Department Head, and Employee roles.",
+    tags: ["React (Vite)", "Node.js", "Express", "SQLite", "JWT Auth", "Tailwind CSS", "Recharts"],
+    github: "https://github.com/rishi1188/odoo-hackathon-2026",
+    demo: "https://odoo-hackathon-2026-phi.vercel.app",
+  },
 ];
 
 export function ProjectsSection() {
