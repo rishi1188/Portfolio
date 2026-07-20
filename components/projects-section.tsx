@@ -21,6 +21,14 @@ const projects = [
     github: "https://github.com",
     demo: "https://example.com",
   },
+  {
+    title: "Jan Saathi",
+    description:
+      "A full-stack AI-powered citizen services assistant that helps users discover Indian government welfare schemes, built for a hackathon on AI for Governance & Citizen Services. Supports Hindi, Telugu, Tamil, and English with voice input; covers 10 major welfare schemes.",
+    tags: ["React.js", "Node.js/Express", "Google Gemini AI", "Vercel", "Railway"],
+    github: "https://github.com/rishi1188/jan-saathi",
+    demo: "https://example.com",
+  },
 ];
 
 export function ProjectsSection() {
@@ -34,7 +42,7 @@ export function ProjectsSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card
               key={project.title}
