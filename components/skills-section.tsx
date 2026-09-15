@@ -129,9 +129,29 @@ const skills = [
 ];
 
 const techStack = [
-  { name: "JavaScript", level: 90 },
-  { name: "Core Java", level: 85 },
-  { name: "Python", level: 75 },
+  { name: "Python", level: 90 },
+  { name: "JavaScript", level: 88 },
+  { name: "TypeScript", level: 84 },
+  { name: "Java", level: 82 },
+  { name: "React", level: 86 },
+  { name: "React Native", level: 82 },
+  { name: "Node.js", level: 84 },
+  { name: "Express.js", level: 80 },
+  { name: "NestJS", level: 76 },
+  { name: "FastAPI", level: 82 },
+  { name: "Tailwind CSS", level: 84 },
+  { name: "HTML & CSS", level: 90 },
+  { name: "SQL", level: 80 },
+  { name: "MongoDB", level: 78 },
+  { name: "SQLite", level: 72 },
+  { name: "Firebase Auth", level: 78 },
+  { name: "JWT Authentication", level: 76 },
+  { name: "Python NLP", level: 84 },
+  { name: "Pandas & NumPy", level: 82 },
+  { name: "Scikit-learn", level: 72 },
+  { name: "LangChain", level: 74 },
+  { name: "Git & GitHub", level: 88 },
+  { name: "Vercel & Railway", level: 78 },
 ];
 
 export function SkillsSection() {
