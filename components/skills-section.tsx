@@ -136,7 +136,7 @@ const techStack = [
 
 export function SkillsSection() {
   return (
-    <section className="py-20 px-4">
+    <section id="skills" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-neon-cyan text-sm font-mono mb-2">What I Use</p>
