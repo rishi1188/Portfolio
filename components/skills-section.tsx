@@ -1,171 +1,151 @@
-"use client";
+import {
+  Braces,
+  BrainCircuit,
+  Box,
+  Cloud,
+  Code2,
+  Container,
+  Database,
+  FileCode2,
+  GitBranch,
+  Globe2,
+  Layers3,
+  Network,
+  PanelsTopLeft,
+  Send,
+  Server,
+  Sparkles,
+  Terminal,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ui/card";
+type Skill = {
+  name: string;
+  icon: LucideIcon;
+  tint: string;
+};
 
-const skills = [
+type SkillCard = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  skills: Skill[];
+  badge?: string;
+  className: string;
+  accent: string;
+};
+
+const cards: SkillCard[] = [
   {
-    name: "HTML",
-    icon: (
-      <svg viewBox="0 0 128 128" className="w-12 h-12">
-        <path
-          fill="#E44D26"
-          d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"
-        />
-        <path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z" />
-        <path
-          fill="#EBEBEB"
-          d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"
-        />
-        <path
-          fill="#fff"
-          d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"
-        />
-      </svg>
-    ),
-    description: "Markup Language",
+    eyebrow: "01 / FOUNDATION",
+    title: "Languages & Core",
+    description: "The primitives I use to turn ideas into reliable, maintainable software.",
+    skills: [
+      { name: "Java", icon: Code2, tint: "hover:border-orange-300 hover:bg-orange-50" },
+      { name: "Python", icon: Braces, tint: "hover:border-blue-300 hover:bg-blue-50" },
+      { name: "JavaScript", icon: Code2, tint: "hover:border-yellow-300 hover:bg-yellow-50" },
+      { name: "TypeScript", icon: FileCode2, tint: "hover:border-blue-300 hover:bg-blue-50" },
+      { name: "SQL", icon: Database, tint: "hover:border-emerald-300 hover:bg-emerald-50" },
+    ],
+    className: "lg:col-span-5",
+    accent: "bg-amber-100 text-amber-700",
   },
   {
-    name: "CSS",
-    icon: (
-      <svg viewBox="0 0 128 128" className="w-12 h-12">
-        <path
-          fill="#1572B6"
-          d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543z"
-        />
-        <path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16z" />
-        <path
-          fill="#fff"
-          d="M64.001 51.429h18.302l1.264-14.163H64.001V23.435h34.682l-.332 3.711-3.4 38.114H64.001z"
-        />
-        <path
-          fill="#EBEBEB"
-          d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018z"
-        />
-        <path
-          fill="#fff"
-          d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881z"
-        />
-        <path
-          fill="#EBEBEB"
-          d="M64.048 23.435v13.831H30.64l-.277-3.108-.63-7.012-.331-3.711zm-.047 27.994v13.831H48.792l-.277-3.108-.631-7.012-.33-3.711z"
-        />
-      </svg>
-    ),
-    description: "Styling Language",
+    eyebrow: "02 / INTERFACE",
+    title: "Frontend & UI",
+    description: "Interfaces that feel considered, responsive, and effortless to use.",
+    skills: [
+      { name: "React", icon: PanelsTopLeft, tint: "hover:border-cyan-300 hover:bg-cyan-50" },
+      { name: "Next.js", icon: Globe2, tint: "hover:border-slate-400 hover:bg-slate-50" },
+      { name: "Tailwind CSS", icon: Layers3, tint: "hover:border-sky-300 hover:bg-sky-50" },
+      { name: "HTML5", icon: FileCode2, tint: "hover:border-orange-300 hover:bg-orange-50" },
+      { name: "CSS3", icon: Braces, tint: "hover:border-indigo-300 hover:bg-indigo-50" },
+    ],
+    badge: "Component Architecture & Responsive Design",
+    className: "lg:col-span-7",
+    accent: "bg-cyan-100 text-cyan-700",
   },
   {
-    name: "JavaScript",
-    icon: (
-      <svg viewBox="0 0 128 128" className="w-12 h-12">
-        <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.184H1.408z" />
-        <path
-          fill="#323330"
-          d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"
-        />
-      </svg>
-    ),
-    description: "Programming Language",
+    eyebrow: "03 / SYSTEMS",
+    title: "Backend & Database",
+    description: "Practical APIs and data layers built for clarity, scale, and resilience.",
+    skills: [
+      { name: "Django REST Framework", icon: Server, tint: "hover:border-emerald-300 hover:bg-emerald-50" },
+      { name: "Firebase", icon: Cloud, tint: "hover:border-amber-300 hover:bg-amber-50" },
+      { name: "MongoDB", icon: Database, tint: "hover:border-green-300 hover:bg-green-50" },
+      { name: "Node.js", icon: Terminal, tint: "hover:border-lime-300 hover:bg-lime-50" },
+      { name: "REST APIs", icon: Network, tint: "hover:border-violet-300 hover:bg-violet-50" },
+    ],
+    badge: "Cloud & Storage",
+    className: "lg:col-span-7",
+    accent: "bg-emerald-100 text-emerald-700",
   },
   {
-    name: "Java",
-    icon: (
-      <svg viewBox="0 0 128 128" className="w-12 h-12">
-        <path
-          fill="#0074BD"
-          d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"
-        />
-        <path
-          fill="#EA2D2E"
-          d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"
-        />
-        <path
-          fill="#0074BD"
-          d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617z"
-        />
-        <path
-          fill="#EA2D2E"
-          d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z"
-        />
-        <path
-          fill="#0074BD"
-          d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z"
-        />
-      </svg>
-    ),
-    description: "Programming Language",
-  },
-  {
-    name: "VS Code",
-    icon: (
-      <svg viewBox="0 0 128 128" className="w-12 h-12">
-        <path
-          d="M95.563 2.164l-23.27 23.26L28.45 0l-.003.002L4.47 23.99v80.02l23.98 23.98.002.003 43.843-25.434 23.26 23.27 24.445-8.313V10.48zm-23.27 83.44L40.45 64 72.29 42.4zm23.27 19.11l.003-81.43L124 42.4v43.2z"
-          fill="#0065A9"
-        />
-        <path
-          d="M4.47 23.992l23.98-23.99v.002l.002-.002L72.29 25.424l-31.84 21.6V80.97l31.84 21.603-43.84 25.435-.003-.003-23.98-23.98z"
-          fill="#007ACC"
-        />
-        <path
-          d="M95.563 2.164l.003 105.67-24.445 8.31-.831-.83V12.69l.831-.83z"
-          fill="#1F9CF0"
-        />
-      </svg>
-    ),
-    description: "Code Editor",
-  },
-  {
-    name: "SAP",
-    icon: (
-      <svg viewBox="0 0 128 128" className="w-12 h-12">
-        <path
-          fill="#0076CE"
-          d="M0 51.486v25.028h128V51.486zm102.36 18.727h-4.77V57.44h4.77c2.79 0 4.4 1.46 4.4 4.07v4.62c0 2.62-1.61 4.08-4.4 4.08zm-4.77-6.02v3.52h2.9c1.67 0 2.4-.57 2.4-1.76v-3.23c0-1.19-.73-1.76-2.4-1.76h-2.9zm-11.44 6.02h-2.27l-4.16-8.38v8.38h-1.87V57.44h2.26l4.16 8.38v-8.38h1.88zm-20.37 0h-2v-10.31h-3.78v-2.02h9.56v2.02h-3.78zm-13.45 0h-2V59.46h-3.78v-2.02h9.56v2.02h-3.78zm-13.12 0h-2.44l-2.34-3.92-2.33 3.92h-2.45l3.58-5.8-3.27-5.53h2.44l2.03 3.47 2.04-3.47h2.44l-3.27 5.53zm-20.97 0h-2V57.44h2zm-7.8 0H8.13l-4.16-8.38v8.38H2.1V57.44h2.26l4.16 8.38v-8.38h1.88zm107.55.96c-4.08 0-5.87-2.7-5.87-6.61 0-3.91 1.8-6.57 5.87-6.57 4.08 0 5.88 2.66 5.88 6.57 0 3.9-1.8 6.61-5.88 6.61zm0-10.99c-2.36 0-3.58 1.52-3.58 4.38s1.22 4.42 3.58 4.42c2.37 0 3.59-1.56 3.59-4.42s-1.22-4.38-3.59-4.38z"
-        />
-      </svg>
-    ),
-    description: "Enterprise Software",
+    eyebrow: "04 / INTELLIGENCE",
+    title: "AI, ML & Tooling",
+    description: "A focused toolkit for intelligent workflows, experimentation, and delivery.",
+    skills: [
+      { name: "LangChain", icon: Network, tint: "hover:border-teal-300 hover:bg-teal-50" },
+      { name: "OpenAI APIs", icon: Sparkles, tint: "hover:border-violet-300 hover:bg-violet-50" },
+      { name: "RAG Architectures", icon: BrainCircuit, tint: "hover:border-fuchsia-300 hover:bg-fuchsia-50" },
+      { name: "Git", icon: GitBranch, tint: "hover:border-orange-300 hover:bg-orange-50" },
+      { name: "Docker", icon: Container, tint: "hover:border-blue-300 hover:bg-blue-50" },
+      { name: "Postman", icon: Send, tint: "hover:border-red-300 hover:bg-red-50" },
+    ],
+    className: "lg:col-span-5",
+    accent: "bg-violet-100 text-violet-700",
   },
 ];
 
-const techStack = [
-  "TypeScript",
-  "React Native",
-  "Node.js",
-  "NestJS",
-  "Express.js",
-  "SQL",
-  "LangChain",
-  "MongoDB",
-  "AI / LLM",
-  "NLP",
-  "AI Agents",
-];
+function SkillChip({ skill }: { skill: Skill }) {
+  const Icon = skill.icon;
+  return (
+    <div
+      className={`group/chip inline-flex cursor-default items-center gap-2 rounded-full border border-zinc-200/80 bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-700 transition-all duration-300 hover:scale-105 ${skill.tint}`}
+    >
+      <Icon className="size-4 text-zinc-500 transition-colors duration-300 group-hover/chip:text-zinc-800" aria-hidden="true" />
+      <span>{skill.name}</span>
+    </div>
+  );
+}
+
+function SkillCardView({ card }: { card: SkillCard }) {
+  return (
+    <article className={`group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8 ${card.className}`}>
+      <div className={`absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full opacity-60 blur-3xl ${card.accent.split(" ")[0]}`} aria-hidden="true" />
+      <div className="relative flex h-full flex-col">
+        <div className="mb-8 flex items-start justify-between gap-4">
+          <div>
+            <p className="mb-3 font-mono text-[10px] font-bold tracking-[0.18em] text-zinc-400">{card.eyebrow}</p>
+            <h3 className="font-display text-2xl text-zinc-900 sm:text-[1.7rem]">{card.title}</h3>
+          </div>
+          <span className={`flex size-9 shrink-0 items-center justify-center rounded-full text-xs font-bold ${card.accent}`} aria-hidden="true">{card.eyebrow.slice(0, 2)}</span>
+        </div>
+        <p className="mb-7 max-w-md text-sm leading-6 text-zinc-500">{card.description}</p>
+        <div className="mt-auto flex flex-wrap gap-2">
+          {card.skills.map((skill) => <SkillChip key={skill.name} skill={skill} />)}
+        </div>
+        {card.badge && <div className="mt-6 inline-flex w-fit rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-[11px] font-medium tracking-wide text-zinc-500">{card.badge}</div>}
+      </div>
+    </article>
+  );
+}
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-neon-cyan text-sm font-mono mb-2">What I Use</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Technical Skills
-          </h2>
+    <section id="skills" className="px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-12 max-w-2xl">
+          <p className="mb-4 font-mono text-xs font-bold tracking-[0.2em] text-zinc-500">// TECH STACK</p>
+          <h2 className="font-display text-4xl leading-tight text-zinc-950 sm:text-5xl">Tools & Technologies I Build With</h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-zinc-500">A thoughtfully chosen stack for crafting digital products from first principles to polished, production-ready experiences.</p>
         </div>
-
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-          {techStack.map((tech) => (
-            <Card
-              key={tech}
-              className="border-border bg-card transition-colors duration-300 hover:border-neon-cyan/50"
-            >
-              <CardContent className="flex min-h-24 items-center justify-center p-5 text-center">
-                <h3 className="font-semibold text-foreground">{tech}</h3>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12">
+          {cards.map((card) => <SkillCardView key={card.title} card={card} />)}
         </div>
       </div>
     </section>
   );
 }
+
+export default SkillsSection;
