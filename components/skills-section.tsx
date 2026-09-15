@@ -129,29 +129,17 @@ const skills = [
 ];
 
 const techStack = [
-  { name: "Python", level: 90 },
-  { name: "JavaScript", level: 88 },
-  { name: "TypeScript", level: 84 },
-  { name: "Java", level: 82 },
-  { name: "React", level: 86 },
-  { name: "React Native", level: 82 },
-  { name: "Node.js", level: 84 },
-  { name: "Express.js", level: 80 },
-  { name: "NestJS", level: 76 },
-  { name: "FastAPI", level: 82 },
-  { name: "Tailwind CSS", level: 84 },
-  { name: "HTML & CSS", level: 90 },
-  { name: "SQL", level: 80 },
-  { name: "MongoDB", level: 78 },
-  { name: "SQLite", level: 72 },
-  { name: "Firebase Auth", level: 78 },
-  { name: "JWT Authentication", level: 76 },
-  { name: "Python NLP", level: 84 },
-  { name: "Pandas & NumPy", level: 82 },
-  { name: "Scikit-learn", level: 72 },
-  { name: "LangChain", level: 74 },
-  { name: "Git & GitHub", level: 88 },
-  { name: "Vercel & Railway", level: 78 },
+  "TypeScript",
+  "React Native",
+  "Node.js",
+  "NestJS",
+  "Express.js",
+  "SQL",
+  "LangChain",
+  "MongoDB",
+  "AI / LLM",
+  "NLP",
+  "AI Agents",
 ];
 
 export function SkillsSection() {
@@ -165,43 +153,16 @@ export function SkillsSection() {
           </h2>
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          {techStack.map((tech) => (
             <Card
-              key={skill.name}
-              className="bg-card border-border hover:border-neon-cyan/50 transition-all duration-300 group"
+              key={tech}
+              className="border-border bg-card transition-colors duration-300 hover:border-neon-cyan/50"
             >
-              <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {skill.icon}
-                </div>
-                <h3 className="font-semibold text-foreground mb-1">
-                  {skill.name}
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  {skill.description}
-                </p>
+              <CardContent className="flex min-h-24 items-center justify-center p-5 text-center">
+                <h3 className="font-semibold text-foreground">{tech}</h3>
               </CardContent>
             </Card>
-          ))}
-        </div>
-
-        {/* Skills Progress */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {techStack.map((tech, index) => (
-            <div key={tech.name} className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-foreground font-medium">{tech.name}</span>
-                <span className="text-muted-foreground">{tech.level}%</span>
-              </div>
-              <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-neon-cyan to-neon-green rounded-full transition-all duration-1000"
-                  style={{ width: `${tech.level}%` }}
-                />
-              </div>
-            </div>
           ))}
         </div>
       </div>
